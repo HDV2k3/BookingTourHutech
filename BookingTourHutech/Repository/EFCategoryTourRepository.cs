@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookingTourHutech.Repository
 {
-	public class EFCategoryTourRepository
+	public class EFCategoryTourRepository :ICategoryTourRepository
 	{
 		private readonly BookingTourDbContext _context;
 		public EFCategoryTourRepository(BookingTourDbContext context)

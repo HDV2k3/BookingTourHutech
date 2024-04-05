@@ -1,4 +1,5 @@
 using BookingTourHutech.Models;
+using BookingTourHutech.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,8 +11,14 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BookingTourDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
-
+builder.Services.AddScoped<ICategoryTourRepository, EFCategoryTourRepository>();
+builder.Services.AddScoped<ISuplierRepository, EFSuplierRepository>();
+builder.Services.AddScoped<ITourRepository, EFTourRepository>();
+builder.Services.AddControllersWithViews()
+    .AddRazorOptions(options =>
+    {
+        options.ViewLocationFormats.Add("/{0}.cshtml");
+    });
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

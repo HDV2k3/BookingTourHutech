@@ -1,4 +1,5 @@
-﻿        <!-- Home Section Start -->
+﻿
+<!-- Home Section Start -->
 <div class="home">
     <div class="content">
         <h5>Welcome To Viet Nam</h5>
@@ -9,140 +10,10 @@
 <!-- Home Section End -->
 
 <!-- Section Packages Start -->
-//component gợi ý
-<section class="packages" id="packages">
-    <div class="container">
+<div class="row" style="margin-top: 30px;">
+    @await Component.InvokeAsync("GoiY")
+</div>
 
-        <div class="main-txt">
-            <h1><span>G</span>ợi <Span>Ý</Span></h1>
-        </div>
-        <div class="row" style="margin-top: 30px;">
-            <div class="col-md-4 py-3 py-md-0">
-
-                <div class="card">
-                    <img src="./images/da-lat.png" alt="" class="package-image" onclick="redirectToDetail()">
-                    <div class="card-body">
-                        <h3>Đà Lạt</h3>
-                        <p>Đà Lạt - Thác Bobla - Thung Lũng Tình Yêu Cầu Kính 7D - Vườn Bonsai Hoàng Long Ohayo | Mùa hoa ban</p>
-                        <div class="star">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star "></i>
-                            <i class="fa-solid fa-star "></i>
-                        </div>
-                        <h6>Giá: <strong>$500</strong></h6>
-                        <a href="#" onclick="redirectToDetail()">Book Now</a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-
-                <div class="card">
-                    <img src="./images/hue.png" alt="" class="package-image" onclick="redirectToDetail()">
-                    <div class="card-body">
-                        <h3>Huế</h3>
-                        <p>Huế - Đại Nội - Thiên Mụ - La Vang - Động Phong Nha - Chùa Hương Tích - Đồi chè Thanh Chương - Làng Sen</p>
-                        <div class="star">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star "></i>
-                            <i class="fa-solid fa-star "></i>
-                        </div>
-                        <h6>Giá: <strong>$500</strong></h6>
-
-                        <a href="#" onclick="redirectToDetail()">Book Now</a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-
-                <div class="card">
-                    <img src="./images/sa-pa.png" alt="" class="package-image" onclick="redirectToDetail()">
-                    <div class="card-body">
-                        <h3>Sa Pa</h3>
-                        <p>Du lịch Sapa 3 Ngày 2 Đêm: Cát Cát - Hàm Rồng - Fansipan</p>
-                        <div class="star">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star "></i>
-                            <i class="fa-solid fa-star "></i>
-                        </div>
-                        <h6>Giá: <strong>$500</strong></h6>
-                        <a href="#" onclick="redirectToDetail()">Book Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="row" style="margin-top: 30px;">
-            <div class="col-md-4 py-3 py-md-0">
-
-                <div class="card">
-                    <img src="./images/vung-tau.png" alt="" class="package-image" onclick="redirectToDetail()">
-                    <div class="card-body">
-                        <h3>Vũng Tàu </h3>
-                        <p>Vũng Tàu: Viếng 10 Cảnh Chùa - Hành Hương Lễ Phật - Suối Khoáng Nóng Bình Châu</p>
-                        <div class="star">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star "></i>
-                            <i class="fa-solid fa-star "></i>
-                        </div>
-                        <h6>Giá: <strong>$500</strong></h6>
-                        <a href="#" onclick="redirectToDetail()">Book Now</a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-
-                <div class="card">
-                    <img src="./images/nha-trang.png" alt="" class="package-image" onclick="redirectToDetail()">
-                    <div class="card-body">
-                        <h3>Nha Trang</h3>
-                        <p>Nha Trang - Chùa Long Sơn - Biển Nhũ Tiên - Vinwonder - Làng Gốm Bàu Trúc - Khám Phá Cao Tốc Mới</p>
-                        <div class="star">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star "></i>
-                            <i class="fa-solid fa-star "></i>
-                        </div>
-                        <h6>Giá: <strong>$500</strong></h6>
-                        <a href="#" onclick="redirectToDetail()">Book Now</a>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-
-                <div class="card">
-                    <img src="./images/phu-quoc.png" alt="" class="package-image" onclick="redirectToDetail()">
-                    <div class="card-body">
-                        <h3>Phú Quốc</h3>
-                        <p>Cano 4 đảo khám phá thiên đường phía Nam Đảo + cáp treo Hòn Thơm</p>
-                        <div class="star">
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star checked"></i>
-                            <i class="fa-solid fa-star "></i>
-                            <i class="fa-solid fa-star "></i>
-                        </div>
-                        <h6>Giá: <strong>$500</strong></h6>
-                        <a href="#" onclick="redirectToDetail()">Book Now</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
 <!-- Section Packages End -->
 <!-- Section Services Start -->
 <section class="services" id="services">
@@ -236,54 +107,9 @@
     </div>
 </section>
 <!-- Section Services End -->
-// component galry
+
 <!-- Section Gallary Start -->
-<section class="gallary" id="gallary">
-    <div class="container">
-
-        <div class="main-txt">
-            <h1><span>G</span>allary</h1>
-        </div>
-
-        <div class="row" style="margin-top: 30px;">
-            <div class="col-md-4 py-3 py-md-0">
-                <div class="card">
-                    <img src="./images/g1.png" alt="" height="230px">
-                </div>
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-                <div class="card">
-                    <img src="./images/g2.png" alt="" height="230px">
-                </div>
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-                <div class="card">
-                    <img src="./images/g3.png" alt="" height="230px">
-                </div>
-            </div>
-        </div>
-
-
-        <div class="row" style="margin-top: 30px;">
-            <div class="col-md-4 py-3 py-md-0">
-                <div class="card">
-                    <img src="./images/g4.png" alt="" height="230px">
-                </div>
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-                <div class="card">
-                    <img src="./images/g5.png" alt="" height="230px">
-                </div>
-            </div>
-            <div class="col-md-4 py-3 py-md-0">
-                <div class="card">
-                    <img src="./images/g6.png" alt="" height="230px">
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
+@await Component.InvokeAsync("Galary")
 <!-- Section Gallary End -->
 <!-- About Start -->
 <section class="about" id="about">

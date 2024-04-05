@@ -2,7 +2,7 @@
 
 namespace BookingTourHutech.ViewModels
 {
-	public class Suplier
+	public class SuplierVM
 	{
 		public int SuplierId { get; set; }
 
@@ -26,6 +26,8 @@ namespace BookingTourHutech.ViewModels
 		public string AddressSuplier { get; set; }
 
 		public string DescriptionSuplier { get; set; }
+		
+		public string ImageSuplier { get; set; }
 	}
 	}
 

@@ -18,5 +18,7 @@ namespace BookingTourHutech.Models
         public DbSet<CategoryTour> CategoryTours { get; set; }
         public DbSet<Suplier> Supliers { get; set; }
 
+        public DbSet<Gallary> gallaries { get; set; }
+
     }
 }

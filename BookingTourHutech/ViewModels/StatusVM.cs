@@ -1,6 +1,6 @@
 ﻿namespace BookingTourHutech.ViewModels
 {
-	public class Status
+	public class StatusVM
 	{
 		public int StatusId { get; set; }
 
