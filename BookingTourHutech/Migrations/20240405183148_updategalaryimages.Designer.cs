@@ -4,6 +4,7 @@ using BookingTourHutech.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookingTourHutech.Migrations
 {
     [DbContext(typeof(BookingTourDbContext))]
-    partial class BookingTourDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240405183148_updategalaryimages")]
+    partial class updategalaryimages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,12 +70,7 @@ namespace BookingTourHutech.Migrations
                     b.Property<int>("PeopleCount")
                         .HasColumnType("int");
 
-                    b.Property<int?>("TourId")
-                        .HasColumnType("int");
-
                     b.HasKey("BookingTourId");
-
-                    b.HasIndex("TourId");
 
                     b.ToTable("BookingTours");
                 });
@@ -246,10 +244,6 @@ namespace BookingTourHutech.Migrations
                     b.Property<int>("CategoryTourId")
                         .HasColumnType("int");
 
-                    b.Property<string>("DetailTourDescription")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ImageTour")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -275,35 +269,6 @@ namespace BookingTourHutech.Migrations
                     b.HasIndex("SuplierId");
 
                     b.ToTable("Tours");
-                });
-
-            modelBuilder.Entity("BookingTourHutech.Models.TourImages", b =>
-                {
-                    b.Property<int>("IdTourImage")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTourImage"));
-
-                    b.Property<string>("ImageName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("TourId")
-                        .HasColumnType("int");
-
-                    b.HasKey("IdTourImage");
-
-                    b.HasIndex("TourId");
-
-                    b.ToTable("TourImages");
-                });
-
-            modelBuilder.Entity("BookingTourHutech.Models.BookingTour", b =>
-                {
-                    b.HasOne("BookingTourHutech.Models.Tour", null)
-                        .WithMany("BookingTours")
-                        .HasForeignKey("TourId");
                 });
 
             modelBuilder.Entity("BookingTourHutech.Models.DetailBooking", b =>
@@ -355,17 +320,6 @@ namespace BookingTourHutech.Migrations
                     b.Navigation("SuplierIdNavigation");
                 });
 
-            modelBuilder.Entity("BookingTourHutech.Models.TourImages", b =>
-                {
-                    b.HasOne("BookingTourHutech.Models.Tour", "Tour")
-                        .WithMany("TourImages")
-                        .HasForeignKey("TourId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Tour");
-                });
-
             modelBuilder.Entity("BookingTourHutech.Models.BookingTour", b =>
                 {
                     b.Navigation("DetailBookings");
@@ -383,11 +337,7 @@ namespace BookingTourHutech.Migrations
 
             modelBuilder.Entity("BookingTourHutech.Models.Tour", b =>
                 {
-                    b.Navigation("BookingTours");
-
                     b.Navigation("DetailBookings");
-
-                    b.Navigation("TourImages");
                 });
 #pragma warning restore 612, 618
         }

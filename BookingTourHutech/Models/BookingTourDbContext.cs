@@ -20,5 +20,9 @@ namespace BookingTourHutech.Models
 
         public DbSet<Gallary> gallaries { get; set; }
 
+        public DbSet<GalaryImages> GalaryImages { get; set;}
+
+        public DbSet<TourImages> TourImages { get; set; }
+
     }
 }

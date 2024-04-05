@@ -14,8 +14,10 @@ namespace BookingTourHutech.Models
         public double TourPrice { get; set; }
         public int CategoryTourId { get; set; }
         public int SuplierId { get; set; }
-
-		public virtual ICollection<DetailBooking> DetailBookings { get; set; } = new List<DetailBooking>();
+        public string DetailTourDescription { get; set; }
+        public virtual ICollection<TourImages> TourImages { get; set; } = new List<TourImages>();
+        public virtual ICollection<BookingTour> BookingTours { get; set; } = new List<BookingTour>();
+        public virtual ICollection<DetailBooking> DetailBookings { get; set; } = new List<DetailBooking>();
         [ForeignKey("CategoryTourId")]
         public virtual CategoryTour CategoryTourIdNavigation { get; set; } = null!;
 

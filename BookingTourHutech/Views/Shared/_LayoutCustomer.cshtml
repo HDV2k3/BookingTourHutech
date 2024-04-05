@@ -30,7 +30,7 @@
         <div class="container-fluid  ">
             <div class="container ">             
                 <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                    <a class="navbar-brand" href="index.html" id="logo"><span>T</span>ravel</a>
+                    <a class="navbar-brand" asp-action="Index" asp-controller="Home" id="logo"><span>T</span>ravel</a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span class="fa fa-bars text-danger"></span>
                     </button>
@@ -45,7 +45,7 @@
                                     <a class="nav-link" asp-action="Index" asp-controller="Tour">Du Lịch</a>
                                 </li>           
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#gallary">Bộ Sưu Tập</a>
+                                    <a class="nav-link"asp-action="Index" asp-controller="Galary">Bộ Sưu Tập</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#about">Đối Tác</a>

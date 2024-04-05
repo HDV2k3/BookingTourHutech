@@ -21,7 +21,7 @@
                 </div>
                 <h6>Giá: <strong>@item.TourPrice.ToString("#,##0.00")</strong></h6>
                 <a href="#" onclick="redirectToDetail()">Đặt Ngay</a>
-                <a href="#" onclick="redirectToDetail()">Chi Tiết</a>
+                <a asp-action ="Detail" asp-controller="Tour" asp-route-id="@item.TourId" onclick="redirectToDetail()">Chi Tiết</a>
             </div>
         </div>
 
