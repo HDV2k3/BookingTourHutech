@@ -1,0 +1,23 @@
+﻿@foreach (var item in Model)
+{
+    <div class="d-flex align-items-center justify-content-start">
+        <div class="rounded" style="width: 100px; height: 100px;">
+            <a asp-action="Detail" asp-controller="Tour" asp-route-id="@item.TourId">
+                <img src="~/images/@item.ImageTour" class="img-fluid w-100 rounded-top" alt="@item.TourName">
+            </a>
+        </div>
+        <div>
+            <h6 class="mb-2">@item.TourName</h6>
+            <div class="d-flex mb-2">
+                @for (int i = 0; i < 4; i++)
+                {
+                    <i class="fa fa-star text-secondary"></i>
+                }
+               
+            </div>
+            <div class="d-flex mb-2">
+                <h5 class="fw-bold me-2">@item.TourPrice.ToString("#,##0.00")VND</h5>
+            </div>
+        </div>
+    </div>
+}

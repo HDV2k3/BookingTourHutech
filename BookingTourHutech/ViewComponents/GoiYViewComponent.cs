@@ -10,7 +10,7 @@ namespace BookingTourHutech.ViewComponents
         private readonly BookingTourDbContext db;
         public GoiYViewComponent(BookingTourDbContext context) => db = context;
 
-        public async Task<IViewComponentResult> InvokeAsync(int? categoryTourId, int? page)
+        public  IViewComponentResult Invoke(int? categoryTourId, int? page)
         {
             var tours = db.Tours.AsQueryable();
             tours = tours.OrderBy(t => t.TourId);

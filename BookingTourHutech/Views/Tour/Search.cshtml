@@ -1,0 +1,9 @@
+﻿@model IEnumerable<BookingTourHutech.ViewModels.TourVM>
+@{
+	ViewData["Title"] = "Search";
+	Layout = "_DanhSachTour";
+}
+
+<h1>Search</h1>
+
+@await Html.PartialAsync("TourItem", Model);

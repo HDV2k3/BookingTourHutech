@@ -1,0 +1,29 @@
+﻿@model IEnumerable<BookingTourHutech.ViewModels.TourVM>
+<h3>Có <b>@Model.Count()</b>Tour</h3>
+@foreach (var item in Model)
+{
+    <div class="col-md-4 py-3 py-md-0">
+
+        <div class="card">
+            <a asp-action="Detail" asp-controller="Tour" asp-route-id="@item.TourId">
+                <img src="~/images/@item.ImageTour" class="img-fluid w-100 rounded-top" alt="@item.TourName">
+            </a>
+            <div class="card-body">
+                <h3>@item.TourName</h3>
+                <h4>@item.CategoryName</h4>
+                <p>@item.TourDescription</p>
+                <div class="star">
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star "></i>
+                    <i class="fa-solid fa-star "></i>
+                </div>
+                <h6>Giá: <strong>@item.TourPrice.ToString("#,##0.00")</strong></h6>
+                <a href="#" onclick="redirectToDetail()">Đặt Ngay</a>
+                <a href="#" onclick="redirectToDetail()">Chi Tiết</a>
+            </div>
+        </div>
+
+    </div>
+}

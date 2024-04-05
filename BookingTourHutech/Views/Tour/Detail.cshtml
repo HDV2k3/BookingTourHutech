@@ -71,12 +71,12 @@
 				<div class="col-lg-4 col-xl-3">
 					<div class="row g-4 fruite">
 						<div class="col-lg-12">
-							@* @await Html.PartialAsync("_TimKiemPanel")
-							@await Component.InvokeAsync("MenuLoai") *@
+							@await Html.PartialAsync("_TimKiemPanel")
+							
 						</div>
 						<div class="col-lg-12">
 							<h4 class="mb-4">Các Tour Gần Đó</h4>
-							@* 	@await Component.InvokeAsync("SanPhamTT", new { maloai = Model.MaLoai }) *@
+								@await Component.InvokeAsync("SanPhamTT", new { maloai = Model.TourId })
 
 						</div>
 					</div>
@@ -85,7 +85,7 @@
 			<h1 class="fw-bold mb-0">Các Tour Khác</h1>
 			<div class="vesitable">
 				<div class="owl-carousel vegetable-carousel justify-content-center">
-					@* 	@await Component.InvokeAsync("SanPhamKhac") *@
+						@await Component.InvokeAsync("GoiY")
 
 				</div>
 			</div>

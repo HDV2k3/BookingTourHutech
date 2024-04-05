@@ -1,0 +1,17 @@
+﻿<div class="col-lg-12">
+    <div class="mb-3">
+        <h4>Theo Đối Tác</h4>
+
+        @foreach (var nhacc in Model)
+        {
+            <div class="hanghoa">
+                <div class="mb-2">
+                    <input type="radio" class="me-2 categories-radio" name="Categories" data-ncc="@nhacc.SuplierId">
+                    <a class="categories-link" asp-controller="Tour" asp-action="Index" asp-route-ncc="@nhacc.SuplierId">
+                        <label class="categories-label">@nhacc.SuplierName</label>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

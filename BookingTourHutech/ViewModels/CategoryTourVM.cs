@@ -16,5 +16,7 @@ namespace BookingTourHutech.ViewModels
 
 		[MaxLength(50)]
 		public string Images { get; set; }
+
+		public int TotalCategory { get; set; } 
 	}
 }
