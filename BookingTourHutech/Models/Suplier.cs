@@ -8,7 +8,7 @@ namespace BookingTourHutech.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
 
-        public int SuplierId { get; set; }
+        public string SuplierId { get; set; }
 
         [Required]
         [MaxLength(50)]
