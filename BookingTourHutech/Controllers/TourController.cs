@@ -81,12 +81,6 @@ namespace BookingTourHutech.Controllers
             }
             var result = hanghoas.Select(p => new TourVM
             {
-                //MaHh = p.MaHH,
-                //TenHh = p.TenHH,
-                //DonGia = p.DonGia ?? 0,
-                //Hinh = p.Hinh ?? "",
-                //MoTaNgan = p.MoTaDonVi ?? "",
-                //TenLoai = p.MaLoaiNavigation.TenLoai
                 TourId= p.TourId,
                 TourName= p.TourName,
                 TourPrice = p.TourPrice,

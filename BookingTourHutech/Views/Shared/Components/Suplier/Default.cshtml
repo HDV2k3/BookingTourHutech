@@ -6,7 +6,7 @@
         {
             <div class="hanghoa">
                 <div class="mb-2">
-                    <input type="radio" class="me-2 categories-radio" name="Categories" data-ncc="@nhacc.SuplierId">
+                    <input type="hidden" class="me-2 categories-radio" name="Categories" data-ncc="@nhacc.SuplierId">
                     <a class="categories-link" asp-controller="Tour" asp-action="Index" asp-route-ncc="@nhacc.SuplierId">
                         <label class="categories-label">@nhacc.SuplierName</label>
                     </a>

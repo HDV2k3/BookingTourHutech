@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MotoBikeShop.ViewComponents
+namespace BookingTourHutech.ViewComponents
 {
 	public class SanPhamTTViewComponent : ViewComponent
 	{

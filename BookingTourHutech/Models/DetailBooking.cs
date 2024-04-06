@@ -12,6 +12,7 @@ namespace BookingTourHutech.Models
 
         public int BookingTourId { get; set; }
 
+        public int PersonCount { get; set; }
         public int TourId { get; set; }
 
         public double TourPrice { get; set; }
