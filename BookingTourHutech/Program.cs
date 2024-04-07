@@ -11,10 +11,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BookingTourDbContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-
-
-
-
 builder.Services.AddScoped<ICategoryTourRepository, EFCategoryTourRepository>();
 builder.Services.AddScoped<ISuplierRepository, EFSuplierRepository>();
 builder.Services.AddScoped<ITourRepository, EFTourRepository>();

@@ -20,7 +20,7 @@
                     <i class="fa-solid fa-star "></i>
                 </div>
                 <h6>Giá: <strong>@item.TourPrice.ToString("#,##0.00")</strong></h6>
-                <a style="text-decoration:none;" href="#" onclick="redirectToDetail()">Đặt Ngay</a>
+                <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.TourId" class="btn border border-secondary rounded-pill px-3 text-danger"><i class="fa fa-shopping-bag me-2 text-danger"></i>Đặt Chuyến</a>
                 <a style="text-decoration:none;" asp-action="Detail" asp-controller="Tour" asp-route-id="@item.TourId" onclick="redirectToDetail()">Chi Tiết</a>
             </div>
         </div>

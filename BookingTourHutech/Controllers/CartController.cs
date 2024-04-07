@@ -93,7 +93,7 @@ namespace BookingTourHutech.Controllers
             if (ModelState.IsValid)
             {
 
-                if (model.PaymentMethod == "Thanh Toan Sau")
+                if (model.PaymentMethod == "Thanh Toán Khi Đi")
                 {
                     // Xử lý thanh toán bằng COD
                     if (ModelState.IsValid)
@@ -105,18 +105,26 @@ namespace BookingTourHutech.Controllers
 
                         var hoadon = new BookingTour
                         {
-                            UserId = customerId ?? khachHang.Id,
                             CustomerName = model.FullName ?? khachHang.FullName,
-                            Addresss = model.Address ?? khachHang.Address,
-                            CustomerPhone = model.Phone ?? khachHang.PhoneNumber,
-                            CustomerEmail = model.Email ?? khachHang.Email,
-                            CCCD = model.CCCD,
-                            DayStart = DateTime.Now,
-                            DayEnd = DateTime.Now.AddDays(3),
-                            PaymentMethod = "Thanh Toán Khi Đi",
-                            transport = "Xe Khách",
-                            StatusId = 1,
-                            Note = model.Note,
+							CCCD = model.CCCD,
+							CustomerEmail = model.Email ?? khachHang.Email,
+							CustomerPhone = model.Phone ?? khachHang.PhoneNumber,
+							PaymentMethod = "Thanh Toán Khi Đi",
+							transport = "Xe Khách",
+							Note = model.Note,
+							StatusId = 1,
+							DayStart = DateTime.Now,
+							DayEnd = DateTime.Now.AddDays(3),                        
+							UserId = customerId ?? khachHang.Id,
+							Addresss = model.Addresss ?? khachHang.Address,
+                         
+                   
+                            
+                   
+                           
+                            
+                   
+                
                         };
 
                         db.Database.BeginTransaction();
@@ -154,9 +162,10 @@ namespace BookingTourHutech.Controllers
                     }
 
                     return View(Cart);
-                }            
-            }
-            else { return View("Error"); }
+                }
+				else { return View("Error"); }
+			}
+           
             return View(model);
         }
 
