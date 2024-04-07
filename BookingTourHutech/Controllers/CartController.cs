@@ -116,15 +116,7 @@ namespace BookingTourHutech.Controllers
 							DayStart = DateTime.Now,
 							DayEnd = DateTime.Now.AddDays(3),                        
 							UserId = customerId ?? khachHang.Id,
-							Addresss = model.Addresss ?? khachHang.Address,
-                         
-                   
-                            
-                   
-                           
-                            
-                   
-                
+							Addresss = model.Addresss ?? khachHang.Address,            
                         };
 
                         db.Database.BeginTransaction();
