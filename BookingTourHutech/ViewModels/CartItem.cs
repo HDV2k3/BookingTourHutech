@@ -13,6 +13,6 @@ namespace BookingTourHutech.ViewModels
         public int TimeTour { get; set; }
         public DateTime DayStart { get; set; } = DateTime.Now;
         public DateTime DayEnd { get; set; } = DateTime.Now.AddDays(4);
-        public double TotalPriceTour => QuantityPeopele * TourPrice;
+        public double TotalPriceTour => (QuantityPeopele - 4) * 500000 + TourPrice;
     }
 }

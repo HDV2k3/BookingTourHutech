@@ -180,6 +180,8 @@
                 margin-bottom: 5px;
             }
 
+ 
+
 </style>
 @foreach (var item in Model)
 {
@@ -221,39 +223,14 @@
                             </div><div class="addess">
                                 <label>Địa chỉ</label><input type="text" class="form-control" name="Addresss" value="">
                             </div>
+                            <div class="form-item mt-3">
+                                <textarea name="Note" class="form-control" spellcheck="false" cols="15" rows="5" placeholder="Ghi chú"></textarea>
+                            </div>
+                            <input type="submit" name="PaymentMethod" class="btn border-danger text-uppercase text-primary w-100 mt-2" value="Thanh Toán Khi Đi">
+
                         </form>
                     </div>
-                    <div class="customer">
-                        <h3>Hành khách</h3><div class="change">
-                            <div class="change-title">
-                                <h4>Người lớn</h4><p>Từ 12 tuổi</p>
-                            </div>
-                            <td>
-                                <div class="input-group quantity mt-4" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <form asp-action="Down" asp-controller="Cart" asp-route-id="@item.TourId">
-                                            <button class="btn btn-sm btn-minus rounded-circle bg-light border">
-                                                <i class="fa fa-minus"></i>
-                                            </button>
-                                        </form>
-
-                                    </div>
-                                    <input type="number" class="form-control form-control-sm text-center border-0" value="@item.QuantityPeopele" min="1" name="Quantity">
-                                    <div class="input-group-btn">
-                                        <form asp-action="Up" asp-controller="Cart" asp-route-id="@item.TourId">
-                                            <button class="btn btn-sm btn-plus rounded-circle bg-light border btn-plus">
-                                                <i class="fa fa-plus"></i>
-                                            </button>
-                                        </form>
-
-                                    </div>
-                                </div>
-                            </td>
-                        </div>
-                    </div>
-                    <div class="form-item mt-3">
-                        <textarea name="Note" class="form-control" spellcheck="false" cols="30" rows="11" placeholder="Ghi chú"></textarea>
-                    </div>
+                                 
                 </div>
                 <div class="col-md-4 col-12 right">
 
@@ -282,15 +259,20 @@
                                     <tr>
                                         <th class="l1">
                                             <i class="bi bi-person"></i>
-                                            Hành khách
+                                            @item.QuantityPeopele   Hành khách
                                         </th>
-                                        <th class="l2 text-right">
+                                     
+                                        <th class="l1 text-right">
                                             <span class="total-booking">@item.TotalPriceTour</span>
+
                                         </th>
                                     </tr>
                                 </thead>
 
-                            </table><button class="btn btn-primary btn-order">Đặt ngay</button>
+                            </table>
+                          <form>
+                           
+                          </form>
                         </div>
                     </div>
                 </div>

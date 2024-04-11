@@ -19,7 +19,6 @@ namespace BookingTourHutech.Models
         public DateTime DayStart   { get; set; }
      
         public DateTime DayEnd { get; set; }
-
         public string UserId { get; set; }
         [ForeignKey("UserId")]
         public virtual ApplicationUser User { get; set; }
