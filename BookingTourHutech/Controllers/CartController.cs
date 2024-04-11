@@ -31,7 +31,7 @@ namespace BookingTourHutech.Controllers
             return View(Cart);
         }
 
-        public IActionResult AddToCart(int id, int quantity = 1)
+        public IActionResult AddToCart(int id, int quantity = 4)
         {
             var gioHang = Cart;
             var item = gioHang.SingleOrDefault(p => p.TourId == id);
@@ -106,7 +106,6 @@ namespace BookingTourHutech.Controllers
                         var hoadon = new BookingTour
                         {
                             CustomerName = model.FullName ?? khachHang.FullName,
-							CCCD = model.CCCD,
 							CustomerEmail = model.Email ?? khachHang.Email,
 							CustomerPhone = model.Phone ?? khachHang.PhoneNumber,
 							PaymentMethod = "Thanh Toán Khi Đi",
@@ -118,7 +117,6 @@ namespace BookingTourHutech.Controllers
 							UserId = customerId ?? khachHang.Id,
 							Addresss = model.Addresss ?? khachHang.Address,            
                         };
-
                         db.Database.BeginTransaction();
                         try
                         {
@@ -174,6 +172,53 @@ namespace BookingTourHutech.Controllers
         public IActionResult Error()
         {
             return View();
+        }
+        public IActionResult Down(int id)
+        {
+            var giohang = Cart;
+            CartItem item = giohang.Where(p => p.TourId == id).FirstOrDefault();
+            if (item.QuantityPeopele > 1)
+            {
+                --item.QuantityPeopele;
+            }
+            else
+            {
+                giohang.RemoveAll(p => p.TourId == id);
+            }
+            if (giohang.Count == 0)
+            {
+                HttpContext.Session.Remove(MySetting.CART_KEY);
+            }
+            else
+            {
+                HttpContext.Session.Set(MySetting.CART_KEY, giohang);
+            }
+
+            return RedirectToAction("Index");
+        }
+        // tăng số lượng
+        public IActionResult Up(int id)
+        {
+            var giohang = Cart;
+            CartItem item = giohang.Where(p => p.TourId == id).FirstOrDefault();
+            if (item.QuantityPeopele > 1)
+            {
+                ++item.QuantityPeopele;
+            }
+            else
+            {
+                giohang.RemoveAll(p => p.TourId == id);
+            }
+            if (giohang.Count == 0)
+            {
+                HttpContext.Session.Remove(MySetting.CART_KEY);
+            }
+            else
+            {
+                HttpContext.Session.Set(MySetting.CART_KEY, giohang);
+            }
+
+            return RedirectToAction("Index");
         }
     }
 }

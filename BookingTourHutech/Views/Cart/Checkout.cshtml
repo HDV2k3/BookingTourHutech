@@ -1,132 +1,321 @@
 ﻿@model IEnumerable<BookingTourHutech.ViewModels.CartItem>
 @{
-	ViewData["Title"] = "Checkout";
+    ViewData["Title"] = "Checkout";
 }
 
 
 <!-- Single Page Header End -->
 <!-- Checkout Page Start -->
-<div class="container-fluid py-5">
-	<div class="container py-5">
-		<h1 class="mb-4">Billing details</h1>
-		<form asp-action="Checkout">
-			<div class="row g-5">
-				<form asp-action="Checkout" asp-controller="Cart">
-					<div class="col-md-12 col-lg-6 col-xl-7">
-					
-						<div class="form-item delivery-info">
-							<label class="form-label my-3">Tên Người Đặt Chuyến<sup>*</sup></label>
-							<input type="text" name="FullName" class="form-control">
-						</div>
-						<div class="form-item delivery-info">
-							<label class="form-label my-3">Địa Chỉ Lên Xe<sup>*</sup></label>
-							<input type="text" name="Addresss" class="form-control" placeholder="hutech thủ đức">
-						</div>
-						<div class="form-item delivery-info">
-							<label class="form-label my-3">Điện thoại<sup>*</sup></label>
-							<input type="text" name="Phone" class="form-control">
-						</div>
-						<div class="form-item delivery-info">
-							<label class="form-label my-3">CCCD<sup>*</sup></label>
-							<input type="text" name="CCCD" class="form-control">
-						</div>
-						<div class="form-item delivery-info">
-							<label class="form-label my-3">Email<sup>*</sup></label>
-							<input type="text" name="Email" class="form-control">
-						</div>
-						<div class="form-item mt-3">
-							<textarea name="Note" class="form-control" spellcheck="false" cols="30" rows="11" placeholder="Ghi chú"></textarea>
-						</div>
-						@* <button type="submit" class="btn border-secondary text-uppercase text-primary w-100 mt-2">Đặt hàng</button> *@
-						<input type="submit" name="PaymentMethod" class="btn border-secondary text-uppercase text-primary w-100 mt-2" value="Thanh Toán Khi Đi">
-					@* 	<input type="submit" name="CachThanhToan" class="btn border-secondary text-uppercase text-primary w-100 mt-2" value="Thanh Toán Momo"> *@
-					</div>
-				</form>
-				<div class="col-md-12 col-lg-6 col-xl-5">
-					<div class="table-responsive">
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="col">Tour Name</th>
-									<th scope="col">Price</th>
-									<th scope="col">Quantity People</th>
-									<th scope="col">Total</th>
-								</tr>
-							</thead>
-							<tbody>
-								@foreach (var item in Model)
-								{
-									<tr>
-								
-										<td class="py-5">@item.TourName</td>
-										<td class="py-5">$@item.TourPrice</td>
-										<td class="py-5">@item.QuantityPeopele</td>
-										<td class="py-5">@item.TotalPriceTour</td>
-									</tr>
-								}
-								<tr>
-									<th scope="row">
-									</th>
-									<td class="py-5"></td>
-									<td class="py-5"></td>
-									<td class="py-5">
-										<p class="mb-0 text-dark py-3">Tạm Tính</p>
-										<p class="mb-0 text-dark">@Model.Sum(p => p.TotalPriceTour).ToString("#,##0.00")VND</p>
-									</td>
-									<td class="py-5">
-										<div class="py-3 border-bottom border-top">
-											@* 											<p class="mb-0 text-dark">@Model.Sum(p => p.ThanhTien).ToString("#,##0.00")VND</p>
-											*@											<input type="hidden" name="TongTien" value="@Model.Sum(p => p.TotalPriceTour).ToString("#,##0.00")VND">
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<th scope="row">
-									</th>
-									<td class="py-5">
-										<p class="mb-0 text-dark py-2">Hành Khách Sẽ Nhận Được số điện thoại của tài xế sau khi thanh toán</p>
-									</td>
-									
-								</tr>
-								<tr>
-									<th scope="row">
-									</th>
-									<td class="py-5">
-										<p class="mb-0 text-dark text-uppercase py-3">Total</p>
-									</td>
-									<td class="py-5"></td>
-									<td class="py-5"></td>
-									<td class="py-5">
-										<div class="py-3 border-bottom border-top">
-											<p class="mb-0 text-dark">@Model.Sum(p => p.TotalPriceTour).ToString("#,##0.00")VND</p>
-										</div>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<p>Hình Thức Thanh Toán </p>
-					<div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
-</div>
-<!-- Checkout Page End -->
+
+<style>
+    .checkout-main.order-tour .top .product .product-image .image img {
+        border-radius: 10px 0 0 10px;
+        bottom: auto;
+        height: 100%;
+        left: 15%;
+        object-fit: cover;
+        position: absolute;
+        right: 30%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform .2s ease;
+        width: 30%;
+    }
+
+    .checkout-main.order-tour .top .product .product-content {
+        background: #f9f9f9;
+        padding: 15px 30px;
+        width: 70%;
+    }
+
+    div {
+        display: block;
+        unicode-bidi: isolate;
+    }
+
+    .float-end {
+        float: right;
+        margin-left: 10px;
+    }
+
+    .customer-contact-inner label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .customer-contact-inner input[type="text"],
+    .customer-contact-inner input[type="email"],
+    .customer-contact-inner input[type="number"],
+    .customer-contact-inner textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        resize: vertical;
+    }
+
+    .customer-contact-inner textarea {
+        height: 150px;
+    }
+
+    .customer-contact-inner .errorform {
+        color: red;
+        display: none;
+    }
+
+    .customer {
+        margin-top: 20px;
+    }
+
+    .change {
+        display: flex;
+        align-items: center;
+    }
+
+    .change-title {
+        flex: 1;
+    }
+
+    .change-number {
+        display: flex;
+        align-items: center;
+    }
+
+        .change-number span {
+            cursor: pointer;
+            padding: 3px;
+        }
+
+    .form-item {
+        margin-top: 20px;
+    }
+
+    .group-checkout {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+        .group-checkout h3 {
+            margin: 0;
+            padding: 10px 0;
+            border-bottom: 1px solid #ccc;
+        }
+
+    .package-title {
+        font-weight: bold;
+    }
+
+    .detail table {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+        .detail table th {
+            padding: 8px;
+            text-align: left;
+            background-color: #f2f2f2;
+        }
+
+            .detail table th.l1 {
+                width: 70%;
+            }
+
+            .detail table th.l2 {
+                width: 30%;
+            }
+
+    .detail button {
+        display: block;
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        text-align: center;
+        transition: background-color .3s;
+    }
+
+        .detail button:hover {
+            background-color: #45a049;
+        }
+
+    .product {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+
+    .product-image {
+        flex: 0 0 30%;
+    }
+
+        .product-image .image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+    .product-content {
+        flex: 1;
+    }
+
+        .product-content .title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .product-content .entry {
+            margin-bottom: 10px;
+        }
+
+            .product-content .entry span {
+                display: block;
+                margin-bottom: 5px;
+            }
+
+</style>
+@foreach (var item in Model)
+{
+    <section class="checkout-main order-tour animate__fadeIn animate__animated">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 top">
+                    <div class="product">
+                        <div class="product-image">
+                            <div class="image">
+                                <img src="~/images/@item.ImageTour" class="img-fluid" alt="image">
+                            </div>
+                        </div>
+                        <div class="product-content">
+
+                            <div class="ticket-no-wrap d-md-none">
+                                <div class="ticket-no"><i class="icon icon--ticket"></i>NDSGN1371-002-130424VU-H</div>
+                            </div><p class="title" id="title"> @item.TourName </p>
+                            <div class="entry"><div class="entry-inner"><span>Mã Tour <b>@item.TourId</b></span><span>Khởi hành<b>@item.DayStart</b></span><span>Thời gian <b>@item.TimeTour ngày</b></span><span>Nơi khởi hành <b>TP. Hồ Chí Minh</b></span></div></div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-8 col-12 left">
+                    <h2 class="d-none d-lg-block">Tổng quan về chuyến đi</h2><h3>Thông tin liên lạc</h3>
+                    <div class="customer-contact mb-3">
+                        <form class="customer-contact-inner" asp-action="Checkout" asp-controller="Cart" id="form">
+                            <div class="name">
+                                <label>Họ và Tên <b>*</b></label><input autocomplete="off" type="text" class="form-control" name="FullName" value="" data-listener-added_e8852f17="true">
+                                <div class="errorform error-notes">Vui lòng nhập thông tin</div>
+                            </div><div class="mail">
+                                <label>Email <b>*</b></label><input type="email" class="form-control" name="Email" value="" data-listener-added_e8852f17="true">
+                                <div class="errorform error-notes">Vui lòng nhập thông tin</div>
+                            </div><div class="phone">
+                                <label>Số điện thoại <b>*</b></label><input type="text" class="form-control" name="Phone" value="">
+                                <div class="errorform error-notes">
+                                    Vui lòng nhập thông tin
+                                </div>
+                            </div><div class="addess">
+                                <label>Địa chỉ</label><input type="text" class="form-control" name="Addresss" value="">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="customer">
+                        <h3>Hành khách</h3><div class="change">
+                            <div class="change-title">
+                                <h4>Người lớn</h4><p>Từ 12 tuổi</p>
+                            </div>
+                            <td>
+                                <div class="input-group quantity mt-4" style="width: 100px;">
+                                    <div class="input-group-btn">
+                                        <form asp-action="Down" asp-controller="Cart" asp-route-id="@item.TourId">
+                                            <button class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                    <input type="number" class="form-control form-control-sm text-center border-0" value="@item.QuantityPeopele" min="1" name="Quantity">
+                                    <div class="input-group-btn">
+                                        <form asp-action="Up" asp-controller="Cart" asp-route-id="@item.TourId">
+                                            <button class="btn btn-sm btn-plus rounded-circle bg-light border btn-plus">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </div>
+                    </div>
+                    <div class="form-item mt-3">
+                        <textarea name="Note" class="form-control" spellcheck="false" cols="30" rows="11" placeholder="Ghi chú"></textarea>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12 right">
+
+                    <div class="group-checkout">
+                        <h3>Tóm tắt chuyến đi</h3>
+                        <p class="package-title">Tour trọn gói <span> (4 khách)</span></p><div class="product">
+                            <div class="product-image"><img src="~/images/@item.ImageTour" class="img-fluid" alt="image"></div>
+                            <div class="product-content float-end"><p class="title">@item.TourName</p></div>
+                        </div><div class="go-tour">
+                            <div class="start">
+                                <i class="bi bi-calendar"></i>
+                                <div class="start-content">
+                                    <h4>Bắt đầu chuyến đi</h4><p class="time">@item.DayStart</p><p class="from"></p>
+                                </div>
+                            </div>
+                            <div class="end">
+                                <i class="bi bi-calendar"></i>
+                                <div class="start-content">
+                                    <h4>Kết thúc chuyến đi</h4><p class="time">@item.DayEnd</p><p class="from"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="l1">
+                                            <i class="bi bi-person"></i>
+                                            Hành khách
+                                        </th>
+                                        <th class="l2 text-right">
+                                            <span class="total-booking">@item.TotalPriceTour</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                            </table><button class="btn btn-primary btn-order">Đặt ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+}
 
 <script>
-	$(document).ready(function () {
-		$("#GiongKhachHang").change(function () {
-			if ($(this).prop("checked")) {
-				$(this).val(true);
-				$(".delivery-info").addClass("d-none");
-			} else {
-				$(this).val(false);
-				$(".delivery-info").removeClass("d-none");
-			}
-		});
-	});
+    $(document).ready(function () {
+        $("#GiongKhachHang").change(function () {
+            if ($(this).prop("checked")) {
+                $(this).val(true);
+                $(".delivery-info").addClass("d-none");
+            } else {
+                $(this).val(false);
+                $(".delivery-info").removeClass("d-none");
+            }
+        });
+    });
 
 
 </script>
+
+
+
+

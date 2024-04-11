@@ -1,533 +1,107 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Website</title>
-    <link rel="icon" href="./images/logo2.png" type="image/png">
-    
+<!--<div class="container-fluid py-5">
+    <div class="container py-5">
+        <h1 class="mb-4">Billing details</h1>
+        <form asp-action="Checkout">
+            <div class="row g-5">
+                <form asp-action="Checkout" asp-controller="Cart">
+                    <div class="col-md-12 col-lg-6 col-xl-7">
 
-    <link rel="stylesheet" href="style.css">
+                        <div class="form-item delivery-info">
+                            <label class="form-label my-3">Tên Người Đặt Chuyến<sup>*</sup></label>
+                            <input type="text" name="FullName" class="form-control">
+                        </div>
+                        <div class="form-item delivery-info">
+                            <label class="form-label my-3">Địa Chỉ Lên Xe<sup>*</sup></label>
+                            <input type="text" name="Addresss" class="form-control" placeholder="hutech thủ đức">
+                        </div>
+                        <div class="form-item delivery-info">
+                            <label class="form-label my-3">Điện thoại<sup>*</sup></label>
+                            <input type="text" name="Phone" class="form-control">
+                        </div>
+                        <div class="form-item delivery-info">
+                            <label class="form-label my-3">CCCD<sup>*</sup></label>
+                            <input type="text" name="CCCD" class="form-control">
+                        </div>
+                        <div class="form-item delivery-info">
+                            <label class="form-label my-3">Email<sup>*</sup></label>
+                            <input type="text" name="Email" class="form-control">
+                        </div>
+                        <div class="form-item mt-3">
+                            <textarea name="Note" class="form-control" spellcheck="false" cols="30" rows="11" placeholder="Ghi chú"></textarea>
+                        </div>
+                        @* <button type="submit" class="btn border-secondary text-uppercase text-primary w-100 mt-2">Đặt hàng</button> *@
+                        <input type="submit" name="PaymentMethod" class="btn border-secondary text-uppercase text-primary w-100 mt-2" value="Thanh Toán Khi Đi">
+                        @* 	<input type="submit" name="CachThanhToan" class="btn border-secondary text-uppercase text-primary w-100 mt-2" value="Thanh Toán Momo"> *@
+                    </div>
+                </form>
+                <div class="col-md-12 col-lg-6 col-xl-5">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tour Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quantity People</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                <tr>
 
-    <!-- Bootstrap Link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!-- Bootstrap Link -->
+                                    <td class="py-5">@item.TourName</td>
+                                    <td class="py-5">$@item.TourPrice</td>
+                                    <td class="py-5">@item.QuantityPeopele</td>
+                                    <td class="py-5">@item.TotalPriceTour</td>
+                                </tr>
+                                }
+                                <tr>
+                                    <th scope="row">
+                                    </th>
+                                    <td class="py-5"></td>
+                                    <td class="py-5"></td>
+                                    <td class="py-5">
+                                        <p class="mb-0 text-dark py-3">Tạm Tính</p>
+                                        <p class="mb-0 text-dark">@Model.Sum(p => p.TotalPriceTour).ToString("#,##0.00")VND</p>
+                                    </td>
+                                    <td class="py-5">
+                                        <div class="py-3 border-bottom border-top">
+                                            @* 											<p class="mb-0 text-dark">@Model.Sum(p => p.ThanhTien).ToString("#,##0.00")VND</p>
+                                            *@											<input type="hidden" name="TongTien" value="@Model.Sum(p => p.TotalPriceTour).ToString(" #,##0.00")VND">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                    </th>
+                                    <td class="py-5">
+                                        <p class="mb-0 text-dark py-2">Hành Khách Sẽ Nhận Được số điện thoại của tài xế sau khi thanh toán</p>
+                                    </td>
 
-
-    <!-- Font Awesome Cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <!-- Font Awesome Cdn -->
-
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <!-- Google Fonts -->
-</head>
-<body>
-    
-
-
-
-
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg" id="navbar">
-        <div class="container">
-          <a class="navbar-brand" href="index.html" id="logo"><span>T</span>ravel</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
-            <span><i class="fa-solid fa-bars"></i></span>
-          </button>
-          <div class="collapse navbar-collapse" id="mynavbar">
-            <ul class="navbar-nav me-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="index.html">Trang Chủ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#book">Đặt Phòng</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#packages">Gợi Ý</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#services">Dịch Vụ</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#gallary">Bộ Sưu Tập</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#about">Liên Hệ</a> 
-              </li>
-             
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="text" placeholder="Tìm kiếm">
-              <button class="btn btn-primary" type="button">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-    <!-- Navbar End -->
-
-
-
-
-
-    <!-- Home Section Start -->
-    <div class="home">
-        <div class="content">
-            <h5>Welcome To Viet Nam</h5>
-            <h1>Visit <span class="changecontent"></span></h1>
-            <a href="#book">Đặt Phòng</a>
-        </div>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                    </th>
+                                    <td class="py-5">
+                                        <p class="mb-0 text-dark text-uppercase py-3">Total</p>
+                                    </td>
+                                    <td class="py-5"></td>
+                                    <td class="py-5"></td>
+                                    <td class="py-5">
+                                        <div class="py-3 border-bottom border-top">
+                                            <p class="mb-0 text-dark">@Model.Sum(p => p.TotalPriceTour).ToString("#,##0.00")VND</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Hình Thức Thanh Toán </p>
+                    <div class="row g-4 text-center align-items-center justify-content-center border-bottom py-3">
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-    <!-- Home Section End -->
-
-
-
-
-
-    <!-- Section Book Start -->
-    <section class="book" id="book">
-      <div class="container">
-
-        <div class="main-text">
-          <h1><span>B</span>ook</h1>
-        </div>
-        
-        <div class="row">
-
-          <div class="col-md-6 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/book-img.png" alt="">
-            </div>
-          </div>
-
-          <div class="col-md-6 py-3 py-md-0">
-            <form action="#">
-              <p>Địa điểm</p>
-              <select class="form-control" required>
-                <option value="">--Chọn địa điểm--</option>
-                <option value="Đà Lạt">Đà Lạt</option>
-                <option value="Nha Trang">Nha Trang</option>
-                <option value="Phú Quốc">Phú Quốc</option>
-                <option value="Vũng Tàu">Vũng Tàu</option>
-                <option value="TP. HCM">TP. HCM</option>
-                <option value="Hà Nội">Hà Nội</option>
-                <option value="Sa Pa">Sa Pa</option>
-                <option value="Hội An">Hội An</option>
-                <option value="Vịnh Hạ Long">Vịnh Hạ Long</option>
-                <option value="Đà Nẵng">Đà Nẵng</option>
-                <option value="Huế">Huế</option>
-            </select><br>
-            <p>Số người</p> 
-              <input type="text" class="form-control" placeholder="Bạn đi bao nhiêu người" required><br>
-            <p>Ngày đi</p> 
-              <input type="date" class="form-control" placeholder="Ngày đi" required><br>
-            <p>Ngày về</p> 
-              <input type="date" class="form-control" placeholder="Ngày về" required><br>
-              <input type="submit" value="Tìm Kiếm" class="submit" required>
-
-            </form>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!-- Section Book End -->
-
-
-
-
-
-
-
-
-    <!-- Section Packages Start -->
-    <section class="packages" id="packages">
-      <div class="container">
-        
-        <div class="main-txt">
-          <h1><span>G</span>ợi <Span>Ý</Span></h1>
-        </div>
-
-        <div class="row" style="margin-top: 30px;">
-
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/da-lat.png" alt="" class="package-image" onclick="redirectToDetail()">
-              <div class="card-body">
-                <h3>Đà Lạt</h3>
-                <p>Đà Lạt - Thác Bobla - Thung Lũng Tình Yêu Cầu Kính 7D - Vườn Bonsai Hoàng Long Ohayo | Mùa hoa ban</p>
-                <div class="star">
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star "></i>
-                  <i class="fa-solid fa-star "></i>
-                </div>
-                <h6>Giá: <strong>$500</strong></h6>
-                <a href="#" onclick="redirectToDetail()">Book Now</a>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/hue.png" alt=""  class="package-image" onclick="redirectToDetail()">
-              <div class="card-body">
-                <h3>Huế</h3>
-                <p>Huế - Đại Nội - Thiên Mụ - La Vang - Động Phong Nha - Chùa Hương Tích - Đồi chè Thanh Chương - Làng Sen</p>
-                <div class="star">
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star "></i>
-                  <i class="fa-solid fa-star "></i>
-                </div>
-                <h6>Giá: <strong>$500</strong></h6>
-                
-                <a href="#" onclick="redirectToDetail()">Book Now</a>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/sa-pa.png" alt="" class="package-image" onclick="redirectToDetail()">
-              <div class="card-body">
-                <h3>Sa Pa</h3>
-                <p>Du lịch Sapa 3 Ngày 2 Đêm: Cát Cát - Hàm Rồng - Fansipan</p>
-                <div class="star">
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star "></i>
-                  <i class="fa-solid fa-star "></i>
-                </div>
-                <h6>Giá: <strong>$500</strong></h6>
-                <a href="#" onclick="redirectToDetail()">Book Now</a>
-              </div>
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-
-
-        <div class="row" style="margin-top: 30px;">
-
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/vung-tau.png" alt="" class="package-image" onclick="redirectToDetail()">
-              <div class="card-body">
-                <h3>Vũng Tàu </h3>
-                <p>Vũng Tàu: Viếng 10 Cảnh Chùa - Hành Hương Lễ Phật - Suối Khoáng Nóng Bình Châu</p>
-                <div class="star">
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star "></i>
-                  <i class="fa-solid fa-star "></i>
-                </div>
-                <h6>Giá: <strong>$500</strong></h6>
-                <a href="#" onclick="redirectToDetail()">Book Now</a>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/nha-trang.png" alt="" class="package-image" onclick="redirectToDetail()">
-              <div class="card-body">
-                <h3>Nha Trang</h3>
-                <p>Nha Trang - Chùa Long Sơn - Biển Nhũ Tiên - Vinwonder - Làng Gốm Bàu Trúc - Khám Phá Cao Tốc Mới</p>
-                <div class="star">
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star "></i>
-                  <i class="fa-solid fa-star "></i>
-                </div>
-                <h6>Giá: <strong>$500</strong></h6>
-                <a href="#" onclick="redirectToDetail()">Book Now</a>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <img src="./images/phu-quoc.png" alt="" class="package-image" onclick="redirectToDetail()">
-              <div class="card-body">
-                <h3>Phú Quốc</h3>
-                <p>Cano 4 đảo khám phá thiên đường phía Nam Đảo + cáp treo Hòn Thơm</p>
-                <div class="star">
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star checked"></i>
-                  <i class="fa-solid fa-star "></i>
-                  <i class="fa-solid fa-star "></i>
-                </div>
-                <h6>Giá: <strong>$500</strong></h6>
-                <a href="#" onclick="redirectToDetail()">Book Now</a>
-              </div>
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-
-      </div>
-    </section>
-    <!-- Section Packages End -->
-
-
-
-
-
-
-
-    <!-- Section Services Start -->
-    <section class="services" id="services">
-      <div class="container">
-
-        <div class="main-txt">
-          <h1><span>D</span>ịch <span>V</span>ụ</h1>
-        </div>
-
-        <div class="row" style="margin-top: 30px;">
-
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-hotel"></i>
-              <div class="card-body">
-                <h3>Affordable Hotel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-utensils"></i>
-              <div class="card-body">
-                <h3>Food & Drinks</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-bullhorn"></i>
-              <div class="card-body">
-                <h3>Safty Guide</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-
-        <div class="row" style="margin-top: 30px;">
-
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-globe-asia"></i>
-              <div class="card-body">
-                <h3>Around The World</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-plane"></i>
-              <div class="card-body">
-                <h3>Fastest Travel</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-
-            <div class="card">
-              <i class="fas fa-hiking"></i>
-              <div class="card-body">
-                <h3>Adventures</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A, eaque.</p>
-              </div>
-            </div>
-
-          </div>
-
-
-
-        </div>
-
-      </div>
-    </section>
-    <!-- Section Services End -->
-
-
-
-
-    <!-- Section Gallary Start -->
-    <section class="gallary" id="gallary">
-      <div class="container">
-
-        <div class="main-txt">
-          <h1><span>G</span>allary</h1>
-        </div>
-
-        <div class="row" style="margin-top: 30px;">
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/g1.png" alt="" height="230px">
-            </div>
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/g2.png" alt="" height="230px">
-            </div>
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/g3.png" alt="" height="230px">
-            </div>
-          </div>
-        </div>
-
-
-        <div class="row" style="margin-top: 30px;">
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/g4.png" alt="" height="230px">
-            </div>
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/g5.png" alt="" height="230px">
-            </div>
-          </div>
-          <div class="col-md-4 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/g6.png" alt="" height="230px">
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-    <!-- Section Gallary End -->
-
-
-
-
-
-
-
-    <!-- About Start -->
-    <section class="about" id="about">
-      <div class="container">
-
-        <div class="main-txt">
-          <h1>About <span>Us</span></h1>
-        </div>
-
-        <div class="row" style="margin-top: 50px;">
-
-          <div class="col-md-6 py-3 py-md-0">
-            <div class="card">
-              <img src="./images/about-img.png" alt="">
-            </div>
-          </div>
-
-          <div class="col-md-6 py-3 py-md-0">
-            <h2>How Travel Agency Work</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident perferendis dolorem, numquam earum at nam beatae voluptate natus consectetur facere, saepe cupiditate ut exercitationem deserunt, facilis quam perspiciatis autem iure illo harum minima. Quas, vitae aperiam laudantium alias asperiores nulla rerum, nihil eveniet perferendis sint illum accusamus officiis aliquam nam.</p>
-            <button id="about-btn">Read More...</button>
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-    <!-- About End -->
-
-
-
-
-
-
-
-
-    <!-- Footer Start -->
-    <footer id="footer">
-      <h1><span>T</span>ravel</h1>
-      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Temporibus fugiat, ipsa quos nulla qui alias.</p>
-      <div class="social-links">
-        <i class="fa-brands fa-twitter"></i>
-        <i class="fa-brands fa-facebook"></i>
-        <i class="fa-brands fa-instagram"></i>
-        <i class="fa-brands fa-youtube"></i>
-        <i class="fa-brands fa-pinterest-p"></i>
-      </div>
-      <div class="credit">
-        <p>Designed By <a href="#">Trình Minh Trí</a></p>
-      </div>
-      
-    </footer>
-    <!-- Footer End -->
-
-
-
-
-
-
-
-    
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
-      document.getElementById('searchForm').addEventListener('submit', function(event) {
-          event.preventDefault(); // Prevent default form submission
-      
-          // Scroll to the packages section
-          document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
-      });
-
-    </script>
-    <script>
-        function redirectToDetail() {
-            // Redirect to detail.html
-            window.location.href = 'detail.html';
-        }
-        
-    </script>
-</body>
-</html>
+</div>-->
