@@ -1,0 +1,50 @@
+﻿.home {
+    overflow: hidden;
+}
+
+.background-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: imageAnimation 10s linear infinite;
+}
+
+    .background-images img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        animation: imageFade 10s linear infinite;
+    }
+
+@keyframes imageAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes imageFade {
+    25% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+}

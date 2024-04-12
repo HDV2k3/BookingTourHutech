@@ -1,14 +1,18 @@
-﻿
-<!-- Home Section Start -->
-<div class="home">
+﻿<!-- Home Section Start -->
+<div class="home" style="width: 100%; 
+height: 90vh;
+background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.2)), 
+url(/images/background-img.png,); 
+background-repeat: no-repeat;
+background-size: cover;">
     <div class="content">
         <h5>Welcome To Viet Nam</h5>
         <h1>Visit <span class="changecontent"></span></h1>
-        <a href="#book">Đặt chuyến du lịch</a>
+        <a asp-action="Index" asp-controller="Tour">Đặt Phòng</a>
     </div>
+
 </div>
 <!-- Home Section End -->
-
 <!-- Section Packages Start -->
 <div class="row" style="margin-top: 30px;">
     @await Component.InvokeAsync("GoiY")
@@ -107,7 +111,6 @@
     </div>
 </section>
 <!-- Section Services End -->
-
 <!-- Section Gallary Start -->
 @await Component.InvokeAsync("Galary")
 <!-- Section Gallary End -->
@@ -138,3 +141,20 @@
     </div>
 </section>
 <!-- About End -->
+
+<script>
+    var imagePaths = ["/images/background-img.png", "/images/da-lat.png", "/images/nha-trang.png", "/images/phu-quoc.png", "/images/vung-tau.png", "/images/sa-pa.png", "/images/hue.png"];
+    var currentIndex = 0;
+    var homeDiv = document.getElementsByClassName("home")[0];
+
+    function changeBackgroundImage() {
+        currentIndex++;
+        if (currentIndex >= imagePaths.length) {
+            currentIndex = 0;
+        }
+        homeDiv.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.2)), url(${imagePaths[currentIndex]})`;
+        setTimeout(changeBackgroundImage, 1500);
+    }
+
+    changeBackgroundImage();
+</script>
