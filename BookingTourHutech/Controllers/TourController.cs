@@ -1,7 +1,7 @@
 ﻿using BookingTourHutech.Models;
 using BookingTourHutech.ViewModels;
 using Microsoft.AspNetCore.Mvc;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookingTourHutech.Controllers
 {

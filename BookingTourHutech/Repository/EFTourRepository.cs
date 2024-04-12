@@ -1,5 +1,5 @@
 ﻿using BookingTourHutech.Models;
-using System.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookingTourHutech.Repository
 {
@@ -10,16 +10,16 @@ namespace BookingTourHutech.Repository
 		{
 			_context = context;
 		}
-		public async Task<IEnumerable<Tour>> GetAllAsync()
+        public async Task<IEnumerable<Tour>> GetAllAsync()
+        {
+            return await _context.Tours.Include(p => p.CategoryTourIdNavigation)
+                                       .ToListAsync();
+        }
+        public async Task<Tour> GetByIdAsync(int id)
 		{
-			return await _context.Tours.Include(p => p.TourId).ToListAsync();
-		}
-		public async Task<Tour> GetByIdAsync(int id)
-		{
-			// return await _context.Products.FindAsync(id);
-			// lấy thông tin kèm theo category
-			return await _context.Tours.Include(p => p.TourId).FirstOrDefaultAsync(p => p.TourId == id);
-		}
+           
+            return await _context.Tours.Include(p => p.CategoryTourIdNavigation).FirstOrDefaultAsync(p => p.TourId == id);
+        }
 		public async Task AddAsync(Tour product)
 		{
 			_context.Tours.AddAsync(product);
@@ -36,15 +36,13 @@ namespace BookingTourHutech.Repository
 			_context.Tours.Remove(product);
 			await _context.SaveChangesAsync();
 		}
-
-		Task<IEnumerable<Tour>> ITourRepository.GetAllAsync()
-		{
-			throw new NotImplementedException();
-		}
-
-		Task<Tour> ITourRepository.GetByIdAsync(int id)
-		{
-			throw new NotImplementedException();
-		}
-	}
+        public async Task<IEnumerable<Tour>> SearchAsync(string keyword)
+        {
+            return await _context.Tours
+                .Include(p => p.CategoryTourIdNavigation)
+                .Where(t => t.TourName.Contains(keyword) || t.TourDescription.Contains(keyword))
+                .ToListAsync();
+        }   
+      
+    }
 }

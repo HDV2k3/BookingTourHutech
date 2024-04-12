@@ -1,0 +1,54 @@
+﻿@model BookingTourHutech.Models.Tour
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    .product-details {
+        margin-top: 40px;
+    }
+
+    .product-image {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+
+    .additional-images {
+        margin-top: 20px;
+    }
+
+    .additional-image {
+        width: 100%;
+        height: auto;
+        max-width: 300px;
+        margin-bottom: 10px;
+    }
+</style>
+
+
+
+<body>
+    <div class="container">
+        <h2>Product Details</h2>
+        <div class="product-details">
+            <h4>Mã hàng hóa: @Model.TourId</h4>
+            <h4>Tên hàng hóa: @Model.TourName</h4>
+            <h4>Đơn giá: @Model.TourPrice</h4>
+            <h4>Ngày sản xuất: @Model.TourDescription</h4>
+            <h4>Giảm giá: @Model.DetailTourDescription</h4>
+            <h4>loại: @Model.CategoryTourId</h4>
+            <h4>Nhà cung cấp: @Model.SuplierId</h4>
+
+            <img src="~/images/@Model.ImageTour" alt="Product Image" class="product-image" />
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model.TourId">Edit</a>
+                <a asp-action="Index">Back to List</a>
+            </div>
+
+        </div>
+    </div>
+</body>
+

@@ -1,4 +1,5 @@
-﻿using BookingTourHutech.Models;
+﻿
+using BookingTourHutech.Models;
 
 namespace BookingTourHutech.Repository
 {
@@ -9,5 +10,6 @@ namespace BookingTourHutech.Repository
 		Task AddAsync(Tour tour);
 		Task UpdateAsync(Tour tour);
 		Task DeleteAsync(int id);
-	}
+        Task<IEnumerable<Tour>> SearchAsync(string keyword);
+    }
 }
