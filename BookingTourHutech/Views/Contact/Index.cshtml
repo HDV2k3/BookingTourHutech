@@ -1,0 +1,383 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+<main role="main">
+    <section class="py-5 heading container">
+        <div class="row">
+            <div class="col-lg-10 col-md-12 mx-auto contact-title ">
+                <h1 class="fw-bold text-primary ">LIÊN HỆ</h1>
+                <h6 class="text-muted">Để có thể đáp ứng được các yêu cầu và các ý kiến đóng góp của quý vị một cách nhanh chóng xin vui lòng liên hệ</h6>
+            </div>
+        </div>
+    </section>
+    <section class="mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-7 mb-5">
+                    <h2 class="fw-bold text-primary mb-3">
+                        Gửi thông tin
+                    </h2>
+                    <form action="/StaticPage/SendEmail" id="SendEmail" method="post" class="wrap-info-customer-number-person-details mt-4 wrapper-new-input">
+                        <div class="row mb-3">
+                            <div class="col-12 col-md-4">
+                                <div class="mb-3 form-group">
+                                    <label class="form-label">
+                                        Loại thông tin<span class="text-danger">(*)</span>
+                                    </label>
+                                    <select class="form-control birth-month hotel-flight-input" name="titleType">
+                                        <option value="1">Du lịch</option>
+                                        <option value="2">Chăm sóc khách hàng</option>
+                                        <option value="3">Liên hệ thông tin khác</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="mb-3 form-group">
+                                    <label class="form-label">
+                                        Họ tên<span class="text-danger">(*)</span>
+                                    </label><input type="text" class="form-control fullName hotel-flight-input" required="" name="fullName" id="fullName" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="mb-3 form-group">
+                                    <label class="form-label">
+                                        Email<span class="text-danger">(*)</span>
+                                    </label><input type="email" class="form-control fullName hotel-flight-input" required="" name="email" id="email" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="mb-3 form-group">
+                                    <label class="form-label">
+                                        Điện thoại<span class="text-danger">(*)</span>
+                                    </label><input type="text" class="form-control fullName hotel-flight-input" required="" name="phone" id="phone" placeholder="(xxx) xxx-xxxx" value="">
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-4">
+                                <div class="mb-3 form-group">
+                                    <label class="form-label">Tên công ty</label>
+                                    <input type="text" class="form-control fullName hotel-flight-input" name="companyName" id="companyName" value="" data-listener-added_eba301d7="true">
+                                </div>
+                            </div><div class="col-12 col-md-4">
+                                <div class="mb-3 form-group">
+                                    <label class="form-label">Số khách</label><input type="number" class="form-control fullName hotel-flight-input" name="totalCustomer" id="totalCustomer" value="">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="mb-3 form-group">
+                                    <label class="form-label">Địa chỉ</label>
+                                    <input type="text" class="form-control fullName hotel-flight-input" name="address" id="address" value="">
+                                </div>
+                            </div>
+                            <div class="col-12"><div class="mb-3 form-group"><label class="form-label">Tiêu đề<span class="text-danger">(*)</span></label><input type="text" class="form-control fullName hotel-flight-input" required="" name="title" id="title" value=""></div></div><div class="col-12"><div class="mb-3 form-group"><label class="form-label">Nội dung<span class="text-danger">(*)</span></label><textarea class="form-control fullName hotel-flight-input" rows="4" cols="5" placeholder="Nhập nội dung cần gửi" required="" name="content" id="content"></textarea></div></div>
+                        </div>
+                    
+                        <div class="text-center"><button type="submit" class="btn btn-primary">Gửi đi &nbsp;&nbsp;<i class="fas fa-paper-plane"></i></button></div>
+                    </form>
+                </div><div class="col-12 col-md-5">
+                    <div class="branch">
+                        <h2 class="fw-bold text-primary mb-3">Mạng lưới chi nhánh</h2><div class="wrapper bg-light p-4">
+                            <h3 class="fw-bold pb-3 pt-3 fs-3">Khu vực thành phố Hồ Chí Minh</h3><div class="item">
+                                <h4 class="fw-bold">TRỤ SỞ CHÍNH</h4><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 190 Pasteur, P. Võ Thị Sáu, Q.3, Tp. Hồ Chí Minh, Việt Nam</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84-28) 38 668 999 (20 lines)</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84-28) 38 29 9142</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@vietravel.com - info.asia@vietravel.com (English Support)</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">PHÒNG ĐĂNG KÝ DU LỊCH CHỢ LỚN</h5><ul class="list-unstyled"><li><i class="fas fa-map-signs"></i> 86A Châu Văn Liêm, Phường 11, Quận 5, Tp. HCM</li><li><i class="fas fa-phone"></i> Tel: (84-28) 35 358 709</li><li><i class="fas fa-fax"></i> Fax:</li><li><i class="fas fa-envelope"></i> Email: vtv.cholon@vietravel.com</li></ul>
+                            </div><div class="item"><h5 class="fw-bold">PHÒNG ĐĂNG KÝ DU LỊCH QUẬN 11</h5><ul class="list-unstyled"><li><i class="fas fa-map-signs"></i> 1475 Đường 3/2, Phường 16, Quận 11, Tp. HCM</li><li><i class="fas fa-phone"></i> Tel: (84-28) 39 699 439</li><li><i class="fas fa-fax"></i> Fax:</li><li><i class="fas fa-envelope"></i> Email: vtv.caygo@vietravel.com</li></ul></div><div class="item">
+                                <h5 class="fw-bold">CÔNG TY CỔ PHẦN DỊCH VỤ VẬN CHUYỂN THẾ GIỚI (WORLDTRANS)</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 90A Nguyễn Thị Minh Khai, P. Võ Thị Sáu, Quận 3, Tp.HCM, Việt Nam</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84-28) 3822 7755 / Đặt vé máy bay: 0938 301 377 / Khách hợp đồng: 0938 798 866</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84-28) 38 248 525</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@worldtrans.vn</li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <h5 class="fw-bold">PHÒNG ĐĂNG KÝ DU LỊCH PHÚ MỸ HƯNG</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 1481 Nguyễn Văn Linh, KP Mỹ Toàn 1, P.Tân Phong, Q.7, TP.HCM</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 02854122777</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.phumyhung@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">VIETRAVEL ACADEMY – DU HỌC VIETRAVEL</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 90A Nguyễn Thị Minh Khai, P. Võ Thị Sáu, Q. 3, TP.HCM</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84-28) 999 69069 - 0936 401 762</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@vietravel.edu.vn</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">PHÒNG ĐĂNG KÝ DU LỊCH CỘNG HÒA</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 492 Cộng Hòa, P.13, Q.Tân Bình, TP.HCM</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84-28) 38 102 409</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84-28) 38 102 419</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.conghoa@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CÔNG TY CỔ PHẦN TRUYỀN THÔNG &amp; SỰ KIỆN ĐÀN ONG VIỆT</h5><ul class="list-unstyled">
+                                    <li>
+                                        <i class="fas fa-map-signs"></i> 27 - 29 Huỳnh Văn Gấm, P. Tây Thạnh, Quận Tân Phú, TP.HCM
+                                    </li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84-8) 3936 2030</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84-28) 3820 7666</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@beevent.vn</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CÔNG TY TNHH MỘT THÀNH VIÊN DỊCH VỤ DU LỊCH TRIPU</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 90A Nguyễn Thị Minh Khai, P. Võ Thị Sáu, Quận 3, TP. HCM</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 1900 9066 (Hotline)</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84-28) 38 29 91 42</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@tripu.vn</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">TRUNG TÂM DỊCH VỤ DU LỊCH LÁ XANH</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> Văn phòng Tầng lửng Ga đi quốc nội - Sân bay Tân Sơn Nhất (P. 2, Q. Tân Bình, TP. HCM)</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84-28) 3848 7443/ /3848 9775</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84-28) 3848 7442/3848 9331</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.laxanh@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">XÍ NGHIỆP VẬN CHUYỂN XUYÊN Á</h5><ul class="list-unstyled"><li><i class="fas fa-map-signs"></i> 23B Trường Sơn, P. 4, Q. Tân Bình, TP. HCM</li><li><i class="fas fa-phone"></i> Tel: (84-28) 39 487 056</li><li><i class="fas fa-fax"></i> Fax: (84-28) 39 487 038</li><li><i class="fas fa-envelope"></i> Email: asiaexpress@vietravel.com</li></ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CÔNG TY CỔ PHẦN THƯƠNG MẠI DỊCH VỤ VIECOMS</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 46 đường số 4, phường Tân Hưng, Quận 7, Tp HCM</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 19008088</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@viecoms.vn</li>
+                                </ul>
+                            </div><h3 class="fw-bold pb-3 pt-3 fs-3">Miền Bắc</h3>
+                            <div class="item"><h4 class="fw-bold">CHI NHÁNH HÀ NỘI</h4><ul class="list-unstyled"><li><i class="fas fa-map-signs"></i> VPDL khách lẻ: 03 Hai Bà Trưng, Hà Nội - Tel: 024. 3933 1978 | VPDL khách đoàn: Tầng 7, tòa nhà Hồng Hà - Số 37 Ngô Quyền, Hà Nội - Tel: 024. 3971 1159</li><li><i class="fas fa-phone"></i> Tel: (84.24) 3933 1978 | Hotline: DLTN - 0989 37 00 33 / DLNN - 0983 16 00 22</li><li><i class="fas fa-fax"></i> Fax: (84.24) 3933 1979</li><li><i class="fas fa-envelope"></i> Email: vtv.hanoi@vietravel.com</li></ul></div><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH QUẢNG NINH</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 18 Đường 25/4, P. Bạch Đằng, Tp. Hạ Long, Quảng Ninh</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84-203) 6262 266 - Hotline: 0911 67 65 88</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84-203) 6262 255</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.quangninh@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH HẢI PHÒNG</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 04 Trần Hưng Đạo, P. Hoàng Văn Thụ, Q.Hồng Bàng, TP. Hải Phòng</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (0225) 3 842 888 - Hotline: 0936 900 085</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (0225) 3 842 828</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.haiphong@vietravel.com; info.hph@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">VIETRAVEL NGHỆ AN</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 201 Đặng Thái Thân, P. Quang Trung, TP. Vinh, Nghệ An</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84.238) 355 22 99 | Hotline: 0946 376 288 - 0943 142 288</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84.238) 3566 108</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info.vii@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH THANH HÓA</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> Số 109 Dương Đình Nghệ, P.Tân Sơn, TP.Thanh Hóa</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84 237) 8728 969 - Hotline: 0967 931 969</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84 237) 8728 959</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.thanhhoa@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH THÁI NGUYÊN</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 52 Hoàng Văn Thụ, TP. Thái Nguyên, tỉnh Thái Nguyên</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 0208 3522 020</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.thainguyen@vietravel.com.vn</li>
+                                </ul>
+                            </div><h3 class="fw-bold pb-3 pt-3 fs-3">Miền Trung</h3><div class="item">
+                                <h5 class="fw-bold">CÔNG TY TNHH MTV VIETRAVEL HUẾ</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 01 Hùng Vương, P. Phú Hội, TP. Huế, tỉnh Thừa Thiên Huế</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 0234. 3831 432 | Hotline: 0964 109 109</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84 234) 383 1431</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info.hue@vietravel.com</li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH ĐÀ NẴNG</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 58 Pasteur, Quận Hải Châu, TP. Đà Nẵng</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84 236) 38 63 544 | Hotline tour trong nước: 0905 17 33 31 / Hotline tour nước ngoài: 0935 12 33 47 / 0932 47 23 10</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84 236) 3849 437</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.danang@vietravel.com</li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH QUẢNG NGÃI</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 516 Quang Trung, P. Nguyễn Nghiêm, TP. Quảng Ngãi</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84 255) 3719 123 - Ext: 101,102 | Hotline: 0962 19 70 09</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84 255) 3719 345</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.quangngai@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH QUY NHƠN</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 28 Trường Chinh, Phường Lý Thường Kiệt, Thành phố Quy Nhơn, Bình Định</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84 256) 3 823 829 - Ext: 102,103,104,106,108 | Hotline: 0901 16 41 66</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84 256) 3 817 679</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.quinhon@vietravel.com; info.qno@vietravel.com</li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH NHA TRANG</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 100 Quang Trung, P. Lộc Thọ, Tp. Nha Trang</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84.258) 35 26 577 | Hotline: 0988 608 286</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84.258) 35 26 576</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.nhatrang@vietravel.com</li>
+                                </ul>
+                            </div><h3 class="fw-bold pb-3 pt-3 fs-3">Tây Nguyên</h3><div class="item">
+                                <h5 class="fw-bold">VIETRAVEL ĐẮK LẮK</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 58 Điện Biên Phủ, P. Thống Nhất, TP. Buôn Ma Thuột</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84.262) 3753 999 - Ext: 4607 | Hotline: 0906 50 90 95</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84.262) 3673 999</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.buonmathuot@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">VIETRAVEL LÂM ĐỒNG</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 28 Pasteur, Phường 4, Thành phố Đà Lạt, Lâm Đồng</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84.263) 3513 513 - Ext: 7501, 7502 | Hotline: 0901 131 321</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84.263) 3818485</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.dalat@vietravel.com</li>
+                                </ul>
+                            </div><h3 class="fw-bold pb-3 pt-3 fs-3">Đông Nam Bộ</h3><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH VŨNG TÀU</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 150 Trương Công Định, P.3, Tp. Vũng Tàu</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (0254) 3 838 138 | Hotline: ‎0906 54 85 68</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (0254) 38 38 248</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.vungtau@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">PHÒNG ĐĂNG KÝ DU LỊCH BÀ RỊA</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 33 Lê Quý Đôn, Tp. Bà Rịa</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (0254) 3738 338</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email:</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH ĐỒNG NAI</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 242 đường 30/4, P. Thanh Bình, TP. Biên Hòa, Đồng Nai</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84.2513) 948 930 - (84.2513) 948 933 | Hotline: 0947.228.284 (Ms. Ngân) - 0988.034.344 (Ms. Bích)</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84 251) 394 8936</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.bienhoa@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH BÌNH DƯƠNG</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 317 Đại lộ Bình Dương, P. Chánh Nghĩa, TP. Thủ Dầu Một, Bình Dương</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84 274) 38 82 888- Ext: 101,103,104 | Hotline: 0908 02 66 44 - 0901 66 54 55</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84 274) 38 82 889</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info.bdu@vietravel.com</li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH TÂY NINH</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 379 đường 30/4, P.1, TP. Tây Ninh, tỉnh Tây Ninh</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 0276 3739 379 - Hotline: 0908 267 276</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info.tni@vietravel.com</li>
+                                </ul>
+                            </div>
+                            <h3 class="fw-bold pb-3 pt-3 fs-3">Miền Tây</h3><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH CẦN THƠ</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 103 Trần Văn Khéo, P. Cái Khế, Q. Ninh Kiều, Tp. Cần Thơ</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (0292) 3763 085 | Hotline: 0939 05 95 96</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (0292) 3763 086</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info.cth@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">VIETRAVEL AN GIANG</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> Số 01 Lý Tự Trọng, P. Mỹ Long, TP. Long Xuyên, An Giang</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84 296) 3 923 567 - Hotline tour trong nước: 0907 19 48 91 / Hotline tour nước ngoài: 0985 78 80 67</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84 296) 3923 123</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.longxuyen@vietravel.com</li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <h5 class="fw-bold">PHÒNG ĐĂNG KÝ DU LỊCH CHÂU ĐỐC</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 69 Chi Lăng, P. Châu Phú, Tp. Châu Đốc</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (0296) 3569 588 / Hotline: 0939 56 22 57</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email:</li>
+                                </ul>
+                            </div>
+                            <div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH RẠCH GIÁ</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 60 Lạc Hồng, P. Vĩnh Lạc, TP. Rạch Giá</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (84 297) 3 577 999 | Hotline: 0907 27 20 29</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (84 297) 3 577 888</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info.rgi@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">PHÒNG ĐĂNG KÝ DU LỊCH HÀ TIÊN</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 04 đường Tuần Phủ Đạt, Khu phố 1, Phường Đông Hồ, TP. Hà Tiên, tỉnh Kiên Giang</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 0297 3896 888 | Hotline: 0907 27 20 29</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email:</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH PHÚ QUỐC</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 53 đường 30/4, Khu phố 1, P. Dương Đông, TP. Phú Quốc</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (0297) 3 996 544 /3996 546 | Hotline tour trong nước: 0907 92 42 19 / Hotline tour nước ngoài: 0907 99 73 66</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (0297) 3 996 543</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.phuquoc@vietravel.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">CHI NHÁNH CÀ MAU</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 324 Phan Ngọc Hiển, P.9, TP. Cà Mau</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (0290) 3558 899</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (0290) 3552 298</li>
+                                    <li><i class="fas fa-envelope"></i> Email: vtv.camau@vietravel.com</li>
+                                </ul>
+                            </div><h3 class="fw-bold pb-3 pt-3 fs-3">Nước ngoài</h3><div class="item">
+                                <h5 class="fw-bold">VIETRAVEL TẠI MỸ</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 9191 Bolsa Avenue Suite 219 Westminster, CA.92683</li>
+                                    <li><i class="fas fa-phone"></i> Tel: [001] 888 789 6463</li>
+                                    <li><i class="fas fa-fax"></i> Fax: [001] 714 677 0478</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@vietravel.us</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">INDOCHINA HERITAGE TRAVEL - CAMPUCHIA</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 181 BEO. Kampuchea Krom Blvd (128), Sangkat Mittapheap, Khan 7 Makara, Phnompenh, Cambodia</li>
+                                    <li><i class="fas fa-phone"></i> Tel: (+855) 23 88 47 47 | Cell-phone:(+855) 884 266 266</li>
+                                    <li><i class="fas fa-fax"></i> Fax: (+855) 23 88 47 32</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@indochinaheritages.com</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">VIETRAVEL TẠI ÚC - MELBOURNE</h5>
+                                <ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 2 Droop Street, Footscray, Melbourne, Victoria 3011, Australia.</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 0401 257 979</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@vietravel.com.au</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">VIETRAVEL TẠI PHÁP (AN INCENTIVES SARL)</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> 19 Rue Damesme, Paris 75013, France</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 0143133060 (tiếng Việt)/ 0143132929 (en français) - Gọi từ Pháp | +33143133060 (tiếng Việt)/ +33143132929 (en français) - Gọi từ các nước khác</li>
+                                    <li><i class="fas fa-fax"></i> Fax: NA</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@vietravel.fr</li>
+                                </ul>
+                            </div><div class="item">
+                                <h5 class="fw-bold">VIETRAVEL TẠI ÚC - SYDNEY</h5><ul class="list-unstyled">
+                                    <li><i class="fas fa-map-signs"></i> Shop 33, Liberty Plaza, 256 Chapel Road Bankstown, Sydney, NSW 2200</li>
+                                    <li><i class="fas fa-phone"></i> Tel: 0481 879 798</li>
+                                    <li><i class="fas fa-fax"></i> Fax:</li>
+                                    <li><i class="fas fa-envelope"></i> Email: info@vietravel.com.au</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

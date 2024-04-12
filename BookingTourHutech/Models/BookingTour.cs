@@ -17,7 +17,7 @@ namespace BookingTourHutech.Models
         public int StatusId { get; set; }
         public string Note { get; set; }
         public DateTime DayStart   { get; set; }
-     
+        
         public DateTime DayEnd { get; set; }
         public string UserId { get; set; }
         [ForeignKey("UserId")]

@@ -103,20 +103,19 @@ namespace BookingTourHutech.Controllers
                         var customerId = User.FindFirstValue(ClaimTypes.NameIdentifier);
                         var khachHang = new ApplicationUser();
 
-
                         var hoadon = new BookingTour
                         {
                             CustomerName = model.FullName ?? khachHang.FullName,
-							CustomerEmail = model.Email ?? khachHang.Email,
-							CustomerPhone = model.Phone ?? khachHang.PhoneNumber,
-							PaymentMethod = "Thanh Toán Khi Đi",
-							transport = "Xe Khách",
-							Note = model.Note,
-							StatusId = 1,
-							DayStart = DateTime.Now,
-							DayEnd = DateTime.Now.AddDays(3),                        
-							UserId = customerId ?? khachHang.Id,
-							Addresss = model.Addresss ?? khachHang.Address,            
+                            CustomerEmail = model.Email ?? khachHang.Email,
+                            CustomerPhone = model.Phone ?? khachHang.PhoneNumber,
+                            PaymentMethod = "Thanh Toán Khi Đi",
+                            transport = "Xe Khách",
+                            Note = model.Note,
+                            StatusId = 0,
+                            DayStart = DateTime.Now,
+                            DayEnd = DateTime.Now.AddDays(3),
+                            UserId = customerId ?? khachHang.Id,
+                            Addresss = model.Addresss ?? khachHang.Address,
                         };
                         db.Database.BeginTransaction();
                         try
@@ -162,8 +161,8 @@ namespace BookingTourHutech.Controllers
                     string accessKey = "iPXneGmrJH0G8FOP";
                     string serectkey = "sFcbSGRSJjwGxwhhcEktCHWYUuTuPNDB";
                     string orderInfo = "MotoBike Shop";
-                    string returnUrl = "https://localhost:44375/Cart/Success";
-                    string notifyurl = "https://localhost:44375/Cart/SavePayment"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
+                    string returnUrl = "https://localhost:44386/Cart/Success";
+                    string notifyurl = "https://localhost:44386/Cart/SavePayment"; //lưu ý: notifyurl không được sử dụng localhost, có thể sử dụng ngrok để public localhost trong quá trình test
                     string amount = model.Total.Replace(".", "").Replace(",", "").Replace("VND", "");
                     string orderid = DateTime.Now.Ticks.ToString(); //mã đơn hàng
                     string requestId = DateTime.Now.Ticks.ToString();
@@ -212,15 +211,17 @@ namespace BookingTourHutech.Controllers
                      
                         var hoadon = new BookingTour
                         {
-                            UserId = customerId,
                             CustomerName = model.FullName ?? khachHang.FullName,
-                            Addresss = model.Addresss ?? khachHang.Address,
+                            CustomerEmail = model.Email ?? khachHang.Email,
                             CustomerPhone = model.Phone ?? khachHang.PhoneNumber,
-                            DayStart = DateTime.Now,
-                            DayEnd = DateTime.Now.AddDays(3),
-                            PaymentMethod = "MoMo",
-                            StatusId = 1,
+                            PaymentMethod = "Thanh Toán MoMo",
+                            transport = "Xe Khách",
                             Note = model.Note,
+                            StatusId = 0,
+                            DayStart = DateTime.Now.AddDays(1),
+                            DayEnd = DateTime.Now.AddDays(5),
+                            UserId = customerId ?? khachHang.Id,
+                            Addresss = model.Addresss ?? khachHang.Address,
                         };
 
                         db.Database.BeginTransaction();
